@@ -40,6 +40,18 @@ public class SetorService {
 		} 
 	}
 	
+	public Setor findByOne(String label, String value) {
+		Criteria criteria = new CriteriaBuilder()
+				.is(label, Optional.ofNullable(value))
+				.build();
+		Setor setor = setorRepository.findByOne(criteria);
+		if (setor != null) {
+			return setor;
+		} else {
+			throw new ObjectNotFoundException("Recurso não encontrado!");
+		} 
+	}
+	
 	public Setor save(Setor setor) {
 		setor.setId(null);
 		return setorRepository.save(setor);
