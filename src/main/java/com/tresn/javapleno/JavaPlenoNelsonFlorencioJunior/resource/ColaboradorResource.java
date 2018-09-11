@@ -2,6 +2,8 @@ package com.tresn.javapleno.JavaPlenoNelsonFlorencioJunior.resource;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tresn.javapleno.JavaPlenoNelsonFlorencioJunior.dto.ColaboradorDTO;
 import com.tresn.javapleno.JavaPlenoNelsonFlorencioJunior.model.Colaborador;
 import com.tresn.javapleno.JavaPlenoNelsonFlorencioJunior.service.ColaboradorService;
 
@@ -43,8 +46,8 @@ public class ColaboradorResource {
 	
 	@GetMapping("/lista-por-setor")
 	@ResponseStatus(HttpStatus.OK)
-	public List<Colaborador> findBySetor(@RequestParam(value = "setorId", required = false) String setorId) {
-		return colaboradorService.findBySetor(setorId);
+	public List<ColaboradorDTO> findBySetorDTO(@RequestParam(value = "setorId", required = false) String setorId) {
+		return colaboradorService.findBySetorDTO(setorId);
 	}
 	
 	@GetMapping("/{id}")
@@ -55,7 +58,7 @@ public class ColaboradorResource {
 	
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Colaborador post(@RequestBody Colaborador colaborador) {
+	public Colaborador post(@Valid @RequestBody Colaborador colaborador) {
 		return colaboradorService.save(colaborador);
 	}
 

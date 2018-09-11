@@ -6,7 +6,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.tresn.javapleno.JavaPlenoNelsonFlorencioJunior.validation.interfaceValidation.ColaboradorPost;
+
 @Document(collection = "Colaboradores")
+@ColaboradorPost
 public class Colaborador implements Serializable { 
 	private static final long serialVersionUID = 1L;
 	
