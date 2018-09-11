@@ -29,7 +29,7 @@ public class SetorResource {
 	private SetorService setorService;
 	
 	
-	@GetMapping()
+	@GetMapping("/lista")
 	@ResponseStatus(HttpStatus.OK)
 	public List<Setor> getAll() {
 		return setorService.findAll();
