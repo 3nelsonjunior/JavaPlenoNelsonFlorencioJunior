@@ -50,7 +50,7 @@ public class CargaInicial  implements ApplicationListener<ContextRefreshedEvent>
     
     public Setor setSetorADM() {
     	Setor setor = new Setor();
-    	setor = setorService.findByOne("descricao", "ADM_TOTAL");
+    	setor = setorService.findByOne("descricao", "ADM-TOTAL");
     	return setor;
     }
     
@@ -76,8 +76,8 @@ public class CargaInicial  implements ApplicationListener<ContextRefreshedEvent>
     	setorService.save(setor5);
     	
     	Setor setor6 = new Setor();
-    	setor6.setDescricao("ADM_TOTAL");
-    	setorService.save(setor5);
+    	setor6.setDescricao("ADM-TOTAL");
+    	setorService.save(setor6);
     	
     }
     
