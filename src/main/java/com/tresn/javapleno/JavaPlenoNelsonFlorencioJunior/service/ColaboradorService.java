@@ -1,5 +1,6 @@
 package com.tresn.javapleno.JavaPlenoNelsonFlorencioJunior.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,9 +39,11 @@ public class ColaboradorService {
 				.is("setor.$id", MongoUtil.createObjectId(setorId))
 				.build();
 		List<Colaborador> listaColaboradores = colaboradorRepository.findAll(criteria);
-		List<ColaboradorDTO> listaDTO = null;
-		for (Colaborador col : listaColaboradores) {
-			listaDTO.add(new ColaboradorDTO(col));
+		List<ColaboradorDTO> listaDTO = new ArrayList<>();
+		if(!listaColaboradores.isEmpty()) {
+			for (Colaborador col : listaColaboradores) {
+				listaDTO.add(new ColaboradorDTO(col));
+			}
 		}
 		return listaDTO;
 	}

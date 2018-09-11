@@ -43,6 +43,7 @@ public class CargaInicial  implements ApplicationListener<ContextRefreshedEvent>
     	Colaborador colaborador = new Colaborador();
     	colaborador.setNome("admin");
     	colaborador.setCpf("11111111111");
+    	colaborador.setTelefone("(32)9999-9999");
     	colaborador.setEmail("adminp@mobicare.com");
     	colaborador.setSetor(setSetorADM());
     	colaboradorService.save(colaborador);
